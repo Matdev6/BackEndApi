@@ -1,6 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import api from '../services/api';
+import { motion } from 'framer-motion';
+import { EnvelopeIcon, LockClosedIcon } from '@heroicons/react/24/outline';
 
 const Signin = () => {
     // Inicializa o hook do formulário
@@ -26,51 +28,70 @@ const Signin = () => {
     };
 
     return (
-        <div className="h-screen w-screen flex bg-primary">
-            <div className="w-1/3 h-3/4 m-auto bg-secundary rounded-xl shadow-2xl">
-                <div className="flex flex-col">
-                    <h1 className="mx-auto w-max mt-10 text-4xl font-semibold text-white">Registrar</h1>
-                    <div className="flex flex-col w-3/4 h-1/2 mt-16 mx-auto gap-6">
-                        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-                            <label className="flex flex-col">
-                                Email
-                                <input
-                                    type="text"
-                                    placeholder="Digite seu Email..."
-                                    className="rounded-xl p-2 w-full"
-                                    {...register('email', { required: true })} />
-                                {errors?.email?.type === 'required' && <p className='text-red-600 ml-2 mt-2 font-medium'>O email é obrigatório</p>}
-                            </label>
-                            <label className="flex flex-col">
-                                Senha
-                                <input
-                                    type="password"
-                                    placeholder="Digite sua senha"
-                                    className="rounded-xl p-2 w-full"
-                                    {...register('password', { required: true })} />
-                                {errors?.password?.type === 'required' && <p className='text-red-600 ml-2 mt-2 font-medium'>A senha é obrigatória</p>}
-                            </label>
-                            <label className="flex flex-col">
-                                Confirmar senha
-                                <input
-                                    type="password"
-                                    placeholder="Digite sua senha novamente"
-                                    className="rounded-xl p-2 w-full"
-                                    {...register('confirmPassword', { required: true })} />
-                                {errors?.confirmPassword?.type === 'required' && <p className='text-red-600 ml-2 mt-2 font-medium'>Confirmar a senha é obrigatório</p>}
-                            </label>
-                            <button
-                                className="bg-primary p-2 rounded-xl cursor-pointer hover:bg-green-950 hover:text-white"
-                                type="submit"
-                            >
-                                Registrar
-                            </button>
-                            <a href="">Já possui uma conta? clique aqui</a>
-                        </form>
-                    </div>
+        <div
+        className="w-screen h-screen flex flex-col bg-zinc-100"
+    >
+        <div className="w-4/5 h-4/5 m-auto flex rounded-3xl">
+            <div
+                className="h-full w-2/5 bg-white rounded-l-3xl flex flex-col"
+            >
+                <div className="m-auto items-center flex flex-col gap-2">
+                    <h1 className="text-4xl text-primary font-normal">Bem vindo de volta!</h1>
+                    <p className="text-primary font-extralight w-2/4">
+                        Para continuar conectado conosco, faça login com suas informações pessoais
+                    </p>
+                    <button
+                        className="border border-primary text-primary py-2 px-20 rounded-2xl mt-2 hover:bg-secondary"
+                        
+                    >
+                        Registrar
+                    </button>
+                </div>
+            </div>
+            <div
+                className="h-full w-3/5 bg-primary rounded-r-3xl flex flex-col"
+            >
+                <div className="m-auto flex flex-col gap-4">
+                    <h1 className="text-5xl text-white font-medium items-center m-auto mb-10">
+                        Registrar
+                    </h1>
+                    <form className="flex flex-col gap-5" onSubmit={handleSubmit(createUser)}>
+                        <div className="flex w">
+                            <EnvelopeIcon className="h-14 p-4 w-14 text-gray-500 bg-gray-200" />
+                            <input
+                                type="text"
+                                placeholder="Email"
+                                className="w-96 bg-gray-200 outline-none"
+                                {...register('email', { required: true })}
+                            />
+                            {errors?.email?.type === 'required' && (
+                                <p className="text-red-600 ml-2 mt-2 font-medium">
+                                    O email é obrigatório
+                                </p>
+                            )}
+                        </div>
+                        <div className="flex">
+                            <LockClosedIcon className="h-14 w-14 p-4 bg-gray-200 text-gray-500" />
+                            <input
+                                type="password"
+                                placeholder="Senha"
+                                className="w-96 bg-gray-200 outline-none"
+                                {...register('password', { required: true })}
+                            />
+                            {errors?.password?.type === 'required' && (
+                                <p className="text-red-600 ml-2 mt-2 font-medium">
+                                    A senha é obrigatória
+                                </p>
+                            )}
+                        </div>
+                        <button  className="border border-white text-white py-2 px-20 rounded-2xl mt-2 hover:bg-secondary">
+                            Registrar
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
     );
 };
 

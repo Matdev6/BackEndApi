@@ -1,20 +1,19 @@
-import Header from "./components/Header"
-import Home from "./pages/Home"
-import Login from "./pages/Login"
-import Signin from "./pages/Signin"
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from './pages/Login';
+import Home from './pages/Home';
+import Signin from './pages/Signin';
 
-
-
-function App() {
-
-
-  return (
-    <div className="overflow-hidden">
-      {/* <Header /> */}
-      <Login />
-      {/* <Home /> */}
-    </div>
-      )
+const App = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Signin />} />
+                <Route path="/" element={<Home />} />
+            </Routes>
+        </Router>
+    );
 }
 
-      export default App
+export default App;
