@@ -1,13 +1,22 @@
-import About from "../components/About"
-import Hero from "../components/Hero"
-import Skills from "../components/Skills"
+import { useAuth } from "../context/AuthContext"
+
+
+import Header from "../components/Header"
 
 const Home = () => {
+
+
+
+    const { logout } = useAuth()
+
+    const sair = () => {
+        logout()
+    }
+
     return(
         <div>
-            <Hero />
-            <About />
-            <Skills />
+            <Header />
+            <button onClick={sair}>Logout</button>
         </div>
     )
 }
