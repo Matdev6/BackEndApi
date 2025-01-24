@@ -16,8 +16,7 @@ const authMiddleware = (req, res, next) => {
     }
   };
   
-  // Exemplo de rota protegida
-  app.get('/protected', authMiddleware, (req, res) => {
-    res.status(200).json({ message: 'Acesso permitido' });
-  });
+
   
+
+export default authMiddleware

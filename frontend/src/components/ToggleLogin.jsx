@@ -6,8 +6,8 @@ const ToggleLogin = ({ isAnimate, animateAndRedirect, width, primary_color, prim
     return (
         <motion.div
             className={`${isAnimate
-                ? `h-full ${width} ${primary_color}  ${primary_color_dark} rounded-r-3xl flex flex-col `
-                : `h-full ${width}  ${primary_color}  ${primary_color_dark} md:rounded-l-3xl rounded-t-3xl md:rounded-r-none flex flex-col`
+                ? `h-full ${width} w-full  ${primary_color}  ${primary_color_dark} rounded-r-3xl flex flex-col `
+                : `h-full ${width} w-full ${primary_color}  ${primary_color_dark} md:rounded-l-3xl rounded-t-3xl md:rounded-r-none flex flex-col`
                 } `}
             animate={isAnimate ? { x: x } : { x: 0 }}
             transition={{ duration: 1.5 }}

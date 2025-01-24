@@ -9,8 +9,8 @@
 /* Define a fonte global */
 * {
   font-family: 'Poppins', sans-serif;
-  @apply transition-colors duration-700
-  overflow-hidden
+  
+  @apply transition-colors duration-700 overflow-hidden
 }
 
 
@@ -20,11 +20,14 @@
 
 .img-fundo {
   background-image: url(assets/a.png);
-  background-size: cover; /* Faz a imagem cobrir todo o elemento */
-  background-repeat: no-repeat; /* Evita repetição */
-  background-position: center; /* Centraliza a imagem */
-  width: 100vw; /* Define a largura como 100% da largura da viewport */
-  height: calc(100vh - 80px); /* Define a altura como 100% da altura da viewport */
+  background-size: cover;
+  /* Faz a imagem cobrir todo o elemento */
+  background-repeat: no-repeat;
+  /* Evita repetição */
+  background-position: center;
+  /* Centraliza a imagem */
+  width: 100vw;
+  /* Define a largura como 100% da largura da viewport */
+  height: calc(100vh - 80px);
+  /* Define a altura como 100% da altura da viewport */
 }
-
-

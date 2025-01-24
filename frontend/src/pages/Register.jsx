@@ -69,12 +69,12 @@ const Register = () => {
                 {/* Botão para alternar entre LightMode e DarkMode */}
                 <DarkModeBtn />
 
-                <div className="w-4/5 h-4/5 m-auto flex rounded-3xl">
+                <div className="w-4/5 h-4/5 m-auto flex rounded-3xl flex-col md:flex-row">
                     {/* Seção com animação para login */}
                     <ToggleLogin
                         isAnimate={isAnimate}
                         animateAndRedirect={animateAndRedirect}
-                        width={'w-3/5'}
+                        width={'md:w-3/5'}
                         primary_color={'bg-neutral-50'}
                         primary_color_dark={'dark:bg-neutral-800'}
                         text_color={'text-primary'}
@@ -87,7 +87,7 @@ const Register = () => {
                     
                     {/* Seção com formulário para registro */}
                     <motion.div
-                        className={`${isAnimate ? 'h-full w-2/5 bg-primary dark:bg-neutral-700 rounded-l-3xl flex flex-col' : 'h-full w-2/5 bg-primary dark:bg-neutral-700 rounded-r-3xl flex flex-col'}`}
+                        className={`h-full md:w-2/5 w-full bg-primary dark:bg-neutral-700 ${isAnimate ? 'rounded-l-3xl' : 'rounded-r-3xl' } flex flex-col`}
                         animate={isAnimate ? { x: -1020 } : { x: 0 }}
                         transition={{ duration: 1.5 }}
                     >

@@ -71,7 +71,7 @@ const Login = () => {
           <ToggleLogin
             isAnimate={isAnimate}
             animateAndRedirect={animateAndRedirect}
-            width={'w-2/5'}
+            width={'md:w-2/5'}
             primary_color={'bg-primary'}
             primary_color_dark={'dark:bg-neutral-700'}
             text_color={'text-white'}
@@ -99,7 +99,7 @@ const Login = () => {
 
               {/* Formulário */}
               <Form onSubmit={onSubmit} btn={'Logar'} />
-
+              
               {/* Mensagem de erro */}
               {userNotFound && (
                 <p className="text-red-600 mx-auto">
