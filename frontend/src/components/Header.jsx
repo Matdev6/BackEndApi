@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import logo from "../assets/logo.jpg"
 
 import { useAuth } from "../context/AuthContext"
@@ -19,7 +20,7 @@ const Header = () => {
                     <img src={logo} alt="logo" className="h-16 rounded-xl" />
                 </div>
                 <div className="w-3/5 h-full  items-center flex justify-around text-primary text-xl font-medium">
-                    <a href="" className="hover:border-b-primary ">Inicio</a>
+                    <Link to={'/'} className="hover:border-b-primary ">Inicio</Link>
                     <a href="">Sobre</a>
                     <a href="">Projetos</a>
                     <a href="">Projetos</a>

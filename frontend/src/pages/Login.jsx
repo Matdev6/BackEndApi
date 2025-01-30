@@ -31,8 +31,8 @@ const Login = () => {
       });
 
       console.log('Login bem-sucedido:', response.data);
-      login(response.data.token); // Chama a função de login do contexto
-      reset(); // Reseta o formulário
+      login(response.data.userId, response.data.token); // Chama a função de login do contexto
+
       navigate('/'); // Redireciona para a página inicial
 
     } catch (error) {
