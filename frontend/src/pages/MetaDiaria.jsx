@@ -67,7 +67,6 @@ const MetaDiaria = () => {
 
     return (
         <div className="w-screen relative">
-            <Header />
             <div className={`flex w-max mx-auto mt-10 gap-1 ${modalTask ? 'blur' : ''}`}>
                 <div className="flex">
                     <h1 className="text-primary text-4xl font-semibold cursor-pointer">Meta Diaria</h1>
@@ -77,15 +76,15 @@ const MetaDiaria = () => {
             <div className="flex flex-col items-center">
                 <div className="flex flex-col gap-10 mt-10">
                     {tasks.length === 0 ? (
-                        <h1 className="text-primary md:mx-auto mx-14 mt-20 text-2xl md:text-4xl font-semibold">
+                        <h1 className="text-primary md:mx-auto mx-14 mt-20 text-4xl md:text-5xl font-semibold">
                             Você não tem tarefas cadastradas
                         </h1>
                     ) : (
                         tasks.map((task) => (
                             <div key={task.id} className="flex flex-col items-center bg-primary w-52 h-24 rounded-xl p-1">
                                 <h1 className="text-neutral-50 text-2xl">{task.title}</h1>
-                                <p>{task.completed ? "Concluída" : "Pendente"}</p>
-                                <TrashIcon className="h-6 w-6 text-red-500 relative  left-20 -top-4" onClick={() => delTaks(task.id)} />
+                                <p className="text-secundary">{task.completed ? "Concluída" : "Pendente"}</p>
+                                <TrashIcon className="h-7 w-7 text-red-500 relative  left-20 -top-4 cursor-pointer" onClick={() => delTaks(task.id)} />
                             </div>
                         ))
                     )}
@@ -108,12 +107,14 @@ const MetaDiaria = () => {
                                 className="bg-neutral-200 rounded-md text-neutral-900 p-2 text-xl"
                                 {...register('task')}
                                 required />
-                            <button
-                                className="bg-primary w-1/2 mx-auto p-2 rounded-md text-neutral-50"
-                                type="submit">Cadastrar</button>
-                            <button
-                                className="bg-neutral-800 w-1/2 mx-auto p-2 rounded-md text-neutral-50"
-                                onClick={toggleModal}>Cancelar</button>
+                            <div className="flex md:flex-row flex-col gap-2 mt-10 items-center justify-center mx-auto">
+                                <button
+                                    className="bg-primary  mx-auto px-10 p-2 rounded-md text-neutral-50"
+                                    type="submit">Cadastrar</button>
+                                <button
+                                    className="bg-neutral-800 px-10 mx-auto p-2 rounded-md text-neutral-50"
+                                    onClick={toggleModal}>Cancelar</button>
+                            </div>
                         </form>
                     </div>
                 </div>

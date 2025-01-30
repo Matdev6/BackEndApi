@@ -3,6 +3,7 @@ import { useAuth } from "../context/AuthContext"
 
 import Header from "../components/Header"
 import Card from "../components/Card"
+import Footer from "../components/Footer"
 
 const Home = () => {
 
@@ -10,9 +11,8 @@ const Home = () => {
 
 
     return (
-        <div className="overflow-hidden">
-            <Header />
-            <div className="w-full h-altura-tela flex flex-col md:flex-row">
+        <div className="altura-tela">
+            <div className="w-full  flex flex-col md:flex-row">
                 <div className="w-full md:w-1/2 h-1/2 md:h-full ">
                     <div className="flex flex-col md:mx-16 mx-12 mt-20">
                         <h1 className="text-primary font-medium text-3xl md:text-4xl md:w-11/12 w-full md:h-max">Seja bem vindo ao meu projeto, aqui você encontra um Dev testando diversas funcionalidades</h1>
@@ -34,9 +34,6 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            {/* <Card 
-            title="Meu componente"
-            paragraph='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente odio officia. Ipsum eos quos atque impedit aliquid ut perspiciatis assumenda aspernatur cumque? Obcaecati modi rem nam expedita repellendus sequi.' /> */}
         </div>
     )
 }

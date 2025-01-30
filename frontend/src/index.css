@@ -15,7 +15,11 @@
 
 
 .altura-tela {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 180px);
+}
+
+.teste {
+  min-height: calc(100vh- 160px);
 }
 
 .img-fundo {
@@ -35,4 +39,8 @@
 /* src/index.css ou o arquivo CSS principal */
 .blur {
   filter: blur(5px);
+}
+
+.h-header-mobile {
+  height: 65dvh;
 }

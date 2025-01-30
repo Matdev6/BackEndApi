@@ -8,6 +8,8 @@ import Register from './pages/Register';
 import { AuthProvider } from './context/AuthContext'; // Importa o AuthProvider
 import PrivateRoute from './components/PrivateRoute'; // Importa o PrivateRoute
 import MetaDiaria from './pages/MetaDiaria';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 const App = () => {
     return (
@@ -18,12 +20,16 @@ const App = () => {
                     <Route path="/register" element={<Register />} />
                     <Route path="/" element={
                         <PrivateRoute>
+                            <Header />
                             <Home />
+                            <Footer />
                         </PrivateRoute>
                     } />
                     <Route path='/metadiaria' element={
                         <PrivateRoute>
+                            <Header />
                             <MetaDiaria />
+                            <Footer />
                         </PrivateRoute>
                     } />
                 </Routes>
