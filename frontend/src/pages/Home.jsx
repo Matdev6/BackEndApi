@@ -28,8 +28,9 @@ const Home = () => {
                                 paragraph="Aplicação para gerenciar o afazeres do dia a dia, clique aqui para ir para ele"
                                 url='/metadiaria' />
                             <Card
-                                title="Meta Diaria"
-                                paragraph="Aplicação para gerenciar o afazeres do dia a dia, clique aqui para ir para ele" />                                
+                                title="Gerador de curriculo"
+                                paragraph="Aplicação para gerenciar o afazeres do dia a dia, clique aqui para ir para ele"
+                                url="/curriculo" />                                
                         </div>
                     </div>
                 </div>

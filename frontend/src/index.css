@@ -18,8 +18,8 @@
   height: calc(100vh - 180px);
 }
 
-.teste {
-  min-height: calc(100vh- 160px);
+.altura-tela-curriculo {
+  height: calc(100vh - 80px);
 }
 
 .img-fundo {

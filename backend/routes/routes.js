@@ -107,6 +107,7 @@ router.get('/users/:userId/tasks', async (req, res) => {
   }
 });
 
+// Rota para deletar um usuário
 router.delete('/users/:userId/tasks/:id', async (req, res) => {
     const { id } = req.params
     
@@ -119,6 +120,25 @@ router.delete('/users/:userId/tasks/:id', async (req, res) => {
         res.status(400).json({ error: error.message })
         
     }
+})
+
+// Rota para editar um usuário
+router.put('/users/:userId/tasks/:id', async (req, res) => {
+  const { id } = req.params
+  const { title, completed } = req.body
+
+  try {
+    const tasks = await prisma.task.update({
+      where: { id } ,
+      data: { 
+        title,
+        completed
+      }
+    })
+    res.status(200).json(tasks)
+  } catch (error){
+    res.status(400).json({ error: error.message })
+  }
 })
 
 export default router;

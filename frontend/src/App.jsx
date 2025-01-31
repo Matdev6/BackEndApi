@@ -10,6 +10,8 @@ import PrivateRoute from './components/PrivateRoute'; // Importa o PrivateRoute
 import MetaDiaria from './pages/MetaDiaria';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Curriculo from './pages/Curriculo';
+import CurriculoModelo from './components/CurriculoModelo';
 
 const App = () => {
     return (
@@ -30,6 +32,12 @@ const App = () => {
                             <Header />
                             <MetaDiaria />
                             <Footer />
+                        </PrivateRoute>
+                    } />
+                    <Route path='/curriculo' element={
+                        <PrivateRoute>
+                            <Header />
+                            <Curriculo />
                         </PrivateRoute>
                     } />
                 </Routes>
