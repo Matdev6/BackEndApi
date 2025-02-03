@@ -85,7 +85,7 @@ const Login = () => {
           {/* Conteúdo principal do formulário de login */}
           <motion.div
             className={`${isAnimate
-              ? 'h-full w-3/5 bg-neutral-50 dark:bg-neutral-800 rounded-l-3xl flex flex-col'
+              ? 'h-full w-3/5 bg-neutral-50 dark:bg-neutral-800 md:rounded-l-3xl flex flex-col'
               : 'h-full md:w-3/5 w-full bg-neutral-50 dark:bg-neutral-800 md:rounded-r-3xl rounded-b-3xl md:rounded-l-none flex flex-col'
             }`}
             animate={isAnimate ? { x: -700 } : { x: 0 }}
@@ -94,7 +94,7 @@ const Login = () => {
             <div className="m-auto flex flex-col gap-4">
               
               {/* Título */}
-              <h1 className="md:text-5xl text-3xl ml-28 mt-6 md:ml-0 md:mt-0 text-primary h-14 font-medium items-center m-auto md:mb-10 dark:text-neutral-50">
+              <h1 className="md:text-5xl text-3xl  mt-6 md:ml-0 md:mt-0 text-primary h-14 font-medium items-center m-auto md:mb-10 dark:text-neutral-50">
                 Logar
               </h1>
 

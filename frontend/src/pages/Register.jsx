@@ -93,12 +93,12 @@ const Register = () => {
                     
                     {/* Seção com formulário para registro */}
                     <motion.div
-                        className={`h-full md:w-2/5 w-full bg-primary dark:bg-neutral-700 ${isAnimate ? 'rounded-l-3xl' : 'rounded-r-3xl' } flex flex-col`}
+                        className={`h-full md:w-2/5 w-full bg-primary dark:bg-neutral-700 ${isAnimate ? 'rounded-l-3xl' : 'md:rounded-r-3xl rounded-b-3xl md:rounded-l-none' } flex flex-col`}
                         animate={isAnimate ? { x: -1020 } : { x: 0 }}
                         transition={{ duration: 1.5 }}
                     >
                         <div className="m-auto flex flex-col gap-4">
-                            <h1 className="text-5xl h-14 text-neutral-50 font-medium items-center m-auto mb-10 dark:text-neutral-50">
+                            <h1 className="md:text-5xl text-3xl  h-14 text-neutral-50 font-medium items-center m-auto mb-10 dark:text-neutral-50">
                                 Registrar
                             </h1>
                             

@@ -12,13 +12,13 @@ const Form = ({ onSubmit, btn, btn_border }) => {
     }
 
     return(
-        <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)} >
+        <form className="flex flex-col gap-5 items-center" onSubmit={handleSubmit(onSubmit)} >
                 <div className="flex">
-                  <EnvelopeIcon className="h-14 p-4 w-14 text-gray-500 bg-gray-200" />
+                  <EnvelopeIcon className="h-14 p-4 w-14 text-gray-500 bg-gray-200 rounded-l-xl" />
                   <input
                     type="email"
                     placeholder="Email"
-                    className="md:w-96 w-full bg-gray-200 outline-none"
+                    className="md:w-96 w-48 bg-gray-200 outline-none rounded-r-xl"
                     {...register('email', { required: true })}
                   />
                 </div>
@@ -26,22 +26,22 @@ const Form = ({ onSubmit, btn, btn_border }) => {
                   <p className="text-red-600 ml-2 mt-2 font-medium relative -top-5">O email é obrigatório</p>
                 )}
 
-                <div className="flex">
-                  <LockClosedIcon className="h-14 w-14 p-4 bg-gray-200 text-gray-500" />
+                <div className="flex ">
+                  <LockClosedIcon className="h-14 w-14 p-4 bg-gray-200 text-gray-500 rounded-l-xl" />
                   <input
                     type={showPass ? 'text' : 'password'}
                     placeholder="Senha"
-                    className="md:w-80 bg-gray-200 outline-none"
+                    className="md:w-80 w-32 bg-gray-200 outline-none"
                     {...register('password', { required: true })}
                   />
                   {showPass ? (
                     <EyeSlashIcon
-                      className="h-14 w-16 p-4 bg-gray-200 text-gray-500 cursor-pointer"
+                      className="h-14 w-16 p-4 bg-gray-200 text-gray-500 cursor-pointer rounded-r-xl"
                       onClick={toggleShowPass}
                     />
                   ) : (
                     <EyeIcon
-                      className="h-14 w-16 p-4 bg-gray-200 text-gray-500 cursor-pointer"
+                      className="h-14 w-16 p-4 bg-gray-200 text-gray-500 cursor-pointer rounded-r-xl"
                       onClick={toggleShowPass}
                     />
                   )}
@@ -51,7 +51,7 @@ const Form = ({ onSubmit, btn, btn_border }) => {
                 )}
 
                 
-                <button className={`bg-primary dark:bg-neutral-50 text-white dark:text-neutral-800 py-3 rounded-2xl w-60 ml-10 md:w-full md:ml-0 ${btn_border}`}>
+                <button className={`bg-primary dark:bg-neutral-50 text-white dark:text-neutral-800 py-3 rounded-2xl w-60  md:w-full md:ml-0 ${btn_border}`}>
                   {btn}
                 </button>
               </form>
