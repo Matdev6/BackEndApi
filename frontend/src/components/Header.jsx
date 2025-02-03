@@ -30,7 +30,7 @@ const Header = () => {
                 </div>
                 <div className="w-3/5 h-full  items-center hidden md:flex justify-around text-primary text-xl font-medium">
                     <Link to={'/'} className="hover:border-b-primary ">Inicio</Link>
-                    <a href="">Sobre</a>
+                    <Link to={'/metadiaria'} href="">Meta diaria</Link>
                     <a href="">Projetos</a>
                     <a href="">Projetos</a>
                     <a href="">Contato</a>

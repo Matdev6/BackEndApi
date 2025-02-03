@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import api from '../services/api';
 import { useAuth } from "../context/AuthContext";
 import { CheckCircleIcon, TrashIcon, PencilSquareIcon } from "@heroicons/react/24/outline";
+import CardTask from "../components/CardTask";
 
 const MetaDiaria = () => {
     const { auth } = useAuth();
@@ -52,19 +53,6 @@ const MetaDiaria = () => {
         toggleModal();
     };
 
-    const delTaks = (id) => {
-        deleteTask(id)
-    }
-
-    const deleteTask = async (id) => {
-        try {
-            const response = await api.delete(`/users/${userId}/tasks/${id}`)
-            console.log('task deletada com sucesso', response.data)
-            findTasks()
-        } catch (error) {
-            console.error('Erro ao deletar uma task', error.message)
-        }
-    }
 
     const editTask = async (id, data) => {
         try {
@@ -91,61 +79,65 @@ const MetaDiaria = () => {
                 </div>
             </div>
             <div className="flex flex-col items-center">
-                <div className="flex flex-col gap-10 mt-10">
+                <div className={`grid ${tasks.length === 0 ? '' : 'md:grid-cols-6'} w-screen mt-10`}>
                     {tasks.length === 0 ? (
                         <h1 className="text-primary md:mx-auto mx-14 mt-20 text-4xl md:text-5xl font-semibold">
                             Você não tem tarefas cadastradas
                         </h1>
                     ) : (
                         tasks.map((task) => (
-                            <div key={task.id} className="flex flex-col items-center bg-primary w-64 h-32 rounded-xl p-1">
-                                <h1 className="text-neutral-50 text-2xl">{task.title}</h1>
-                                <p className="text-secundary">{task.completed ? "Concluída" : "Pendente"}</p>
-                                <div className="flex my-auto gap-2">
-                                    <PencilSquareIcon className="h-7 w-7 text-neutral-50  cursor-pointer" onClick={() => {
-                                        setSelectedTaskId(task.id)
-                                        setFormTask(!formTask);
-                                    }} />
-                                    {formTask ? <div className="fixed inset-0 flex items-center justify-center z-50">
-                                        <div className="absolute inset-0 bg-black bg-opacity-50" onClick={() => {
-                                            setSelectedTaskId(null)
-                                            setFormTask(!formTask)
-                                        }}></div>
-                                        <div className="fixed bg-neutral-50 p-6 md:h-1/3 md:w-1/3 w-3/4 flex flex-col shadow-2xl z-10 rounded-xl left-1/2 -translate-x-1/2">
-                                            <h1 className="text-primary text-3xl mx-auto font-medium">Editar tarefa</h1>
-                                            <form className="flex flex-col gap-6 mt-10" onSubmit={handleSubmit((data) => editTask(selectedTaskId, data))}>
-                                                <input
-                                                    type="text"
-                                                    placeholder="Tarefa"
-                                                    className="bg-neutral-200 rounded-md text-neutral-900 p-2 text-xl"
-                                                    {...register('editTask')}
-                                                    required
-                                                    defaultValue={tasks.find(task => task.id === selectedTaskId)?.title} />
-                                                <div className="flex md:flex-col justify-center gap-2 mt-2">
-                                                    <select {...register("completed", { required: true })}
-                                                        className="bg-neutral-200 p-3 rounded-lg">
-                                                        <option value="false">Pendente</option>
-                                                        <option value="true">Concluido</option>
-                                                    </select>
-                                                </div>
-                                                <div className="flex md:flex-row flex-col gap-2  items-center justify-center mx-auto">
-                                                    <button
-                                                        className="bg-primary  mx-auto px-12 py-2 rounded-md text-neutral-50"
-                                                        type="submit">Editar</button>
-                                                    <button
-                                                        className="bg-neutral-800 px-10 mx-auto p-2 rounded-md text-neutral-50"
-                                                        onClick={() => {
-                                                            setSelectedTaskId(null)
-                                                            setFormTask(!formTask)}}>Cancelar</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div> : ''}
+                            <CardTask key={task.id}
+                            taskName={task.title}
+                            taskCompleted={task.completed}
+                            taskId={task.id} />
+                            // <div key={task.id} className="flex flex-col items-center bg-primary w-64 h-32 rounded-xl p-1">
+                            //     <h1 className="text-neutral-50 text-2xl">{task.title}</h1>
+                            //     <p className="text-secundary">{task.completed ? "Concluída" : "Pendente"}</p>
+                            //     <div className="flex my-auto gap-2">
+                            //         <PencilSquareIcon className="h-7 w-7 text-neutral-50  cursor-pointer" onClick={() => {
+                            //             setSelectedTaskId(task.id)
+                            //             setFormTask(!formTask);
+                            //         }} />
+                            //         {formTask ? <div className="fixed inset-0 flex items-center justify-center z-50">
+                            //             <div className="absolute inset-0 bg-black bg-opacity-50" onClick={() => {
+                            //                 setSelectedTaskId(null)
+                            //                 setFormTask(!formTask)
+                            //             }}></div>
+                            //             <div className="fixed bg-neutral-50 p-6 md:h-1/3 md:w-1/3 w-3/4 flex flex-col shadow-2xl z-10 rounded-xl left-1/2 -translate-x-1/2">
+                            //                 <h1 className="text-primary text-3xl mx-auto font-medium">Editar tarefa</h1>
+                            //                 <form className="flex flex-col gap-6 mt-10" onSubmit={handleSubmit((data) => editTask(selectedTaskId, data))}>
+                            //                     <input
+                            //                         type="text"
+                            //                         placeholder="Tarefa"
+                            //                         className="bg-neutral-200 rounded-md text-neutral-900 p-2 text-xl"
+                            //                         {...register('editTask')}
+                            //                         required
+                            //                         defaultValue={tasks.find(task => task.id === selectedTaskId)?.title} />
+                            //                     <div className="flex md:flex-col justify-center gap-2 mt-2">
+                            //                         <select {...register("completed", { required: true })}
+                            //                             className="bg-neutral-200 p-3 rounded-lg">
+                            //                             <option value="false">Pendente</option>
+                            //                             <option value="true">Concluido</option>
+                            //                         </select>
+                            //                     </div>
+                            //                     <div className="flex md:flex-row flex-col gap-2  items-center justify-center mx-auto">
+                            //                         <button
+                            //                             className="bg-primary  mx-auto px-12 py-2 rounded-md text-neutral-50"
+                            //                             type="submit">Editar</button>
+                            //                         <button
+                            //                             className="bg-neutral-800 px-10 mx-auto p-2 rounded-md text-neutral-50"
+                            //                             onClick={() => {
+                            //                                 setSelectedTaskId(null)
+                            //                                 setFormTask(!formTask)}}>Cancelar</button>
+                            //                     </div>
+                            //                 </form>
+                            //             </div>
+                            //         </div> : ''}
 
 
-                                    <TrashIcon className="h-7 w-7 text-red-500   left-20 -top-4 cursor-pointer" onClick={() => delTaks(task.id)} />
-                                </div>
-                            </div>
+                            //         <TrashIcon className="h-7 w-7 text-red-500   left-20 -top-4 cursor-pointer" onClick={() => delTaks(task.id)} />
+                            //     </div>
+                            // </div>
                         ))
                     )}
                 </div>

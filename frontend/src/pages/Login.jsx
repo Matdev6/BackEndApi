@@ -10,6 +10,7 @@ import { useAuth } from '../context/AuthContext'; // Importa o Contexto de Auten
 import DarkModeBtn from '../components/DarkModeBtn.jsx';
 import Form from '../components/Form.jsx';
 import ToggleLogin from '../components/ToggleLogin.jsx';
+import Switch from '../components/Switch.jsx';
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -64,7 +65,7 @@ const Login = () => {
       <motion.div className="w-screen h-screen flex flex-col bg-neutral-100 dark:bg-neutral-600 gap">
         
         {/* Botão de alternância de modo escuro */}
-        <DarkModeBtn />
+        <Switch />
 
         <div className="w-4/5 h-4/5 m-auto flex flex-col md:flex-row rounded-3xl">
           {/* Componente ToggleLogin */}

@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { EnvelopeIcon, LockClosedIcon, EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import { DarkModeContext } from '../context/DarkModeContext';
-import DarkModeBtn from '../components/DarkModeBtn';
+import Switch from '../components/Switch.jsx';
 import Form from '../components/Form';
 import ToggleLogin from '../components/ToggleLogin';
 
@@ -21,6 +21,8 @@ const Register = () => {
    
     // Estado para controlar a animação de transição
     const [isAnimate, setIsAnimate] = useState(false);
+
+    const [errorNewUser, setErrorNewUser] = useState(false)
 
     // Acesso ao contexto de modo escuro (DarkMode)
     const { darkMode, setDarkMode } = useContext(DarkModeContext);
@@ -35,10 +37,14 @@ const Register = () => {
                 email: data.email,
                 password: data.password
             });
-            console.log("Usuário criado com sucesso:", response.data);
+            console.log("Usuário criado com sucesso:", response.data); 
+            alert('Usuario criado com sucesso')
+            navigate('/login')
+
             reset(); // Reseta os campos do formulário
         } catch (error) {
             console.error("Falha ao criar usuário:", error);
+            setErrorNewUser(true)
         }
     };
 
@@ -67,7 +73,7 @@ const Register = () => {
                 className="w-screen h-screen flex flex-col bg-neutral-100 dark:bg-neutral-600"
             >
                 {/* Botão para alternar entre LightMode e DarkMode */}
-                <DarkModeBtn />
+                <Switch />
 
                 <div className="w-4/5 h-4/5 m-auto flex rounded-3xl flex-col md:flex-row">
                     {/* Seção com animação para login */}
@@ -99,7 +105,7 @@ const Register = () => {
                             <Form onSubmit={onSubmit} 
                             btn={'Registrar'}
                             btn_border={'border'}/>
-
+                            {errorNewUser? <p className='text-red-600 ml-2 mt-2 font-medium relative -top-3 '>Email já possui uma conta registrada</p> : ''}
                         </div>
                     </motion.div>
                 </div>
