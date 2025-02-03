@@ -98,7 +98,7 @@ const Register = () => {
                         transition={{ duration: 1.5 }}
                     >
                         <div className="m-auto flex flex-col gap-4">
-                            <h1 className="md:text-5xl text-3xl  h-14 text-neutral-50 font-medium items-center m-auto mb-10 dark:text-neutral-50">
+                            <h1 className="md:text-5xl text-3xl  h-14 text-neutral-50 font-medium items-center m-auto  dark:text-neutral-50">
                                 Registrar
                             </h1>
                             
