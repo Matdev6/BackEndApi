@@ -9,7 +9,7 @@ const router = express.Router();
 const SECRET_KEY = 'mateuskey';
 
 router.get('/', async (req,res) => {
-  res.json({ message: 'Hello world' })
+  res.send('Hello Wordl')
 })
 
 // Rota para registrar um novo usuário
