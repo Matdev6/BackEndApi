@@ -13,9 +13,7 @@ app.use(express.json());
 app.use(routes); // Usa as rotas sem o prefixo /api
 app.use(authMiddleware)
 
-app.get('/', async (req,res) => {
-  res.send('Hello Wordl')
-})
+
 
 app.listen(port, () => {
   console.log(`App de exemplo está rodando na porta ${port}`);
