@@ -8,7 +8,9 @@ const prisma = new PrismaClient();
 const router = express.Router();
 const SECRET_KEY = 'mateuskey';
 
-
+router.get('/', (req, res) => {
+  res.sand('Hello World!')
+})
 
 // Rota para registrar um novo usuário
 router.post('/user', async (req, res) => {
