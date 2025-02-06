@@ -1,4 +1,4 @@
-import SECRET_KEY from "../routes/routes.js";
+import jwt from 'jsonwebtoken';
 
 const authMiddleware = (req, res, next) => {
     const authHeader = req.headers.authorization;
