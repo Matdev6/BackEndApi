@@ -1,11 +1,13 @@
 import express from "express";
 import cors from "cors";
+import authMiddleware from "./middleware/authMiddleware.js";
 
 const app = express(); 
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());    
 app.use(express.json()); 
+app.use(authMiddleware)
 
 app.get("/", (req, res) => {
   res.send("Hello World");
