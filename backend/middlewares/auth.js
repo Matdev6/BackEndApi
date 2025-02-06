@@ -1,3 +1,5 @@
+import SECRET_KEY from "../routes/routes.js";
+
 const authMiddleware = (req, res, next) => {
     const authHeader = req.headers.authorization;
   
